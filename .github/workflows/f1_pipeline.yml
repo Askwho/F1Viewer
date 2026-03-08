@@ -1,0 +1,52 @@
+name: F1 Data Pipeline
+
+on:
+  schedule:
+    # Race weekends (Fri-Sun): check every 10 minutes across all global timezones
+    # Races happen anywhere from 05:00 to 21:00 UTC depending on the circuit
+    # 10-min cadence means you get charts within ~10 min of session end
+    - cron: '*/10 * * * 5,6,0'
+    # Monday: catch anything missed over the weekend
+    - cron: '0 8 * * 1'
+  workflow_dispatch: # Manual trigger from GitHub Actions tab
+
+concurrency:
+  group: f1-pipeline
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run F1 pipeline
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python -m src.pipeline
+
+      - name: Commit updated state
+        run: |
+          git config user.name "F1Viewer Bot"
+          git config user.email "f1viewer-bot@users.noreply.github.com"
+          git add state/sent_data.json
+          git diff --cached --quiet || git commit -m "Update pipeline state after run"
+          git push
