@@ -23,8 +23,7 @@ def main():
     print("  3. Send: /newbot")
     print("  4. Give it a name like: F1Viewer Bot")
     print("  5. Give it a username like: f1viewer_yourname_bot")
-    print("  6. BotFather will give you a token like:")
-    print("     7123456789:AAH1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q")
+    print("  6. BotFather will give you a token (a long string with a colon)")
     print()
 
     token = input("Paste your bot token here: ").strip()
