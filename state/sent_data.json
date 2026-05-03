@@ -29,7 +29,12 @@
     "driver_standings_2026_5",
     "constructor_standings_2026_5",
     "points_progression_2026_5",
-    "qualifying_2026_11276"
+    "qualifying_2026_11276",
+    "race_results_2026_11280",
+    "position_changes_2026_11280",
+    "driver_standings_2026_6",
+    "constructor_standings_2026_6",
+    "points_progression_2026_6"
   ],
   "failed_items": []
 }
