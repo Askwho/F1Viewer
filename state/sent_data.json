@@ -71,7 +71,11 @@
     "constructor_standings_2026_11",
     "points_progression_2026_11",
     "qualifying_2026_11330",
-    "calendar_2026_10"
+    "calendar_2026_10",
+    "race_results_2026_11334",
+    "position_changes_2026_11334",
+    "driver_standings_2026_12",
+    "constructor_standings_2026_12"
   ],
   "failed_items": []
 }
