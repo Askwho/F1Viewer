@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Tablet preview</title>
+<style>
+  body { margin: 0; background: #1a1a1f; display: grid; place-items: center; min-height: 100vh; font: 13px system-ui; color: #888; }
+  .frame { padding: 18px; border-radius: 34px; background: #050505; box-shadow: 0 0 0 1px #333, 0 30px 80px rgba(0,0,0,.6); }
+  iframe { display: block; border: 0; border-radius: 6px; background: #000; }
+  p { margin: 10px 0 0; text-align: center; }
+</style>
+</head>
+<body>
+  <div>
+    <div class="frame"><iframe id="f" src="/"></iframe></div>
+    <p>Galaxy Tab S9 Ultra, landscape, full screen (1480×924 CSS px). Add <code>?portrait</code> or <code>?browser</code> for other views.</p>
+  </div>
+<script>
+  const q = location.search;
+  const [w, h] = q.includes("portrait") ? [924, 1480] : q.includes("browser") ? [1480, 844] : [1480, 924];
+  const f = document.getElementById("f");
+  f.width = w; f.height = h;
+  const fit = () => { const s = Math.min(1, (innerWidth - 80) / (w + 36), (innerHeight - 80) / (h + 36)); document.querySelector(".frame").style.zoom = s; };
+  fit(); addEventListener("resize", fit);
+</script>
+</body>
+</html>

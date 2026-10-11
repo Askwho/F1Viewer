@@ -1,0 +1,113 @@
+/* Pit Wall: built for an OLED tablet. True black ground, greyscale type in
+   a few weights, and colour reserved for meaning: timing marks, tyres,
+   track status and team identity. */
+
+:root {
+  color-scheme: dark;
+
+  --bg: #000;
+  --surface: #0a0a0d;
+  --surface-2: #121217;
+  --surface-3: #1b1b22;
+  --hair: rgba(255, 255, 255, 0.055);
+  --hair-2: rgba(255, 255, 255, 0.1);
+
+  --text: #f3f3f5;
+  --text-2: #a4a4ae;
+  --text-3: #66666f;
+  --text-4: #3a3a42;
+
+  /* Timing semantics, as on the official screens */
+  --purple: #c46bff;
+  --green: #3ee07f;
+  --yellow: #ffd43d;
+
+  --amber: #ff9d1c;
+  --red: #ff3b3b;
+  --pit: #52d3e6;
+  --battle: #ff8b3d;
+  --gain: #3ee07f;
+  --loss: #ff5a5a;
+
+  /* Tyres */
+  --soft: #ff3d3d;
+  --medium: #ffd43d;
+  --hard: #ececf0;
+  --inter: #3fd06a;
+  --wet: #3d8bff;
+
+  --f-ui: "Saira Variable", system-ui, sans-serif;
+  --f-num: "Geist Mono Variable", ui-monospace, monospace;
+
+  --status: transparent;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--f-ui);
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+  user-select: none;
+}
+
+#app {
+  height: 100%;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.num {
+  font-family: var(--f-num);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.label {
+  font-size: 10.5px;
+  font-weight: 600;
+  font-stretch: 112%;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.ob {
+  color: var(--purple);
+}
+.pb {
+  color: var(--green);
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
