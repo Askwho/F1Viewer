@@ -137,7 +137,10 @@
     "driver_standings_2026_21",
     "points_progression_2026_21",
     "qualifying_2026_11408",
-    "calendar_2026_20"
+    "calendar_2026_20",
+    "race_results_2026_11412",
+    "position_changes_2026_11412",
+    "driver_standings_2026_22"
   ],
   "failed_items": []
 }
