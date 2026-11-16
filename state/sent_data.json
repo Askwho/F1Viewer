@@ -142,5 +142,7 @@
     "position_changes_2026_11412",
     "driver_standings_2026_22"
   ],
-  "failed_items": []
+  "failed_items": [
+    "points_progression_2026_22"
+  ]
 }
