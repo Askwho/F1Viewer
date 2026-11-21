@@ -141,9 +141,8 @@
     "race_results_2026_11412",
     "position_changes_2026_11412",
     "driver_standings_2026_22",
-    "qualifying_2026_11416"
-  ],
-  "failed_items": [
+    "qualifying_2026_11416",
     "points_progression_2026_22"
-  ]
+  ],
+  "failed_items": []
 }
